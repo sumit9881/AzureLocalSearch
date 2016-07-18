@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.sadhika.azurelocalsearch.MainActivity">
+    <group android:id="@+id/group_options">
+    <item
+        android:id="@+id/action_sort_distance"
+        android:orderInCategory="100"
+        android:title="@string/sort_by_distance"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_sort_arrival_time"
+        android:orderInCategory="101"
+        android:title="@string/sort_by_arrival_time"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_sort_name"
+        android:orderInCategory="102"
+        android:title="@string/sort_by_name"
+        app:showAsAction="never" />
+    </group>
+
+</menu>

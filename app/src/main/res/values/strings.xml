@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Azure Local Search</string>
+    <string name="sort_by_name">Sort by name</string>
+    <string name="sort_by_distance">Sort by distance</string>
+    <string name="sort_by_arrival_time">Sort by arrival time</string>
+    <string name="location">Location</string>
+    <string name="network_error">Network Error</string>
+    <string name="search_failed">Search Failed because of network error. Exiting&#8230;"</string>
+    <string name="ok">OK</string>
+
+    <string name="tag_arrival_time">Arrival time: %1$s</string>
+    <string name="tag_location">Location %1$s</string>
+    <string name="tag_address">Address %1$s</string>
+    <string name="tag_longitude">Longitude %1$.2f</string>
+    <string name="tag_latitude">Latitude %1$.2f</string>
+
+</resources>
