@@ -19,7 +19,7 @@ import com.example.sadhika.azurelocalsearch.pojos.LocationSearchResult;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity implements LocationSearchResultFragment.OnFragmentInteractionListener, LocationDetailFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements LocationSearchResultFragment.OnFragmentInteractionListener {
 
     private final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
 
@@ -64,10 +64,6 @@ public class MainActivity extends AppCompatActivity implements LocationSearchRes
         getSupportFragmentManager().beginTransaction().add(R.id.main_content, mLocationDetailFragment).addToBackStack(null).commit();
     }
 
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

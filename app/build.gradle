@@ -3,8 +3,10 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'default'
-            keyPassword 'sumit'
+            keyAlias 'alias_name'
+            keyPassword 'gullu123'
+            storeFile file('/Users/Sadhika/.android/my-release-key.keystore')
+            storePassword 'gullu123'
         }
     }
     compileSdkVersion 23

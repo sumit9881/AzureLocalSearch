@@ -30,13 +30,12 @@ import org.w3c.dom.Text;
 public class LocationDetailFragment extends Fragment implements OnMapReadyCallback {
 
     private static final String ARG_RESULT = "arg.result";
-    private final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
+    private final int ZOOM_LEVEL = 15;
 
     public static final String TAG_LOCATION_DETAIL_FRAG = "tag.LocationDetailFragment";
 
     private LocationSearchResult mLocationSearchResult;
 
-    private OnFragmentInteractionListener mListener;
     private SupportMapFragment mMapFragment;
 
     public LocationDetailFragment() {
@@ -81,7 +80,6 @@ public class LocationDetailFragment extends Fragment implements OnMapReadyCallba
         mMapFragment = (SupportMapFragment) getChildFragmentManager()
                 .findFragmentById(R.id.location_map);
 
-//        mMapFragment.setRetainInstance(true);
         getActivity().invalidateOptionsMenu();
         updateContent(rootView);
         return rootView;
@@ -108,18 +106,11 @@ public class LocationDetailFragment extends Fragment implements OnMapReadyCallba
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        mListener = null;
     }
 
     @Override
@@ -128,20 +119,13 @@ public class LocationDetailFragment extends Fragment implements OnMapReadyCallba
         LatLng latlng = new LatLng(mLocationSearchResult.getLatitude(), mLocationSearchResult.getLongitude());
         googleMap.addMarker(new MarkerOptions().position(latlng).title(mLocationSearchResult.getName()));
 
-        CameraUpdate center= CameraUpdateFactory.newLatLng(latlng);
-        CameraUpdate zoom=CameraUpdateFactory.zoomTo(15);
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, ZOOM_LEVEL));
 
-        googleMap.moveCamera(center);
-        googleMap.animateCamera(zoom);
     }
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
-        Log.v("adaas", "sumit disable");
         menu.setGroupVisible(R.id.group_options, false);
     }
 
-    public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
-    }
 }
