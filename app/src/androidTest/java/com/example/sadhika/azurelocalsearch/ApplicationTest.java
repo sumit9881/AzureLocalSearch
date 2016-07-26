@@ -1,4 +1,4 @@
-package com.example.sadhika.azurelocalsearch;
+package com.sadhika.azurelocalsearch;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

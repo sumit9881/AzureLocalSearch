@@ -12,7 +12,7 @@ android {
     compileSdkVersion 23
     buildToolsVersion "23.0.3"
     defaultConfig {
-        applicationId "com.example.sadhika.azurelocalsearch"
+        applicationId "com.sadhika.azurelocalsearch"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1

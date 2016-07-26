@@ -1,4 +1,4 @@
-package com.example.sadhika.azurelocalsearch;
+package com.sadhika.azurelocalsearch;
 
 import org.junit.Test;
 
