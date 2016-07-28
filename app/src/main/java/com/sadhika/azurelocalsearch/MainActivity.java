@@ -7,10 +7,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.sadhika.azurelocalsearch.locationservice.LocationService;
@@ -19,7 +19,7 @@ import com.sadhika.azurelocalsearch.pojos.LocationSearchResult;
 import java.util.ArrayList;
 
 
-public class MainActivity extends AppCompatActivity implements LocationSearchResultFragment.OnFragmentInteractionListener {
+public class MainActivity extends AppCompatActivity implements LocationSearchResultFragment.OnFragmentInteractionListener, FragmentManager.OnBackStackChangedListener {
 
     private final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
 
@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements LocationSearchRes
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
 
+        getSupportFragmentManager().addOnBackStackChangedListener(this);
         if (null == savedInstanceState) {
             mLocationSearchResultFragment = new LocationSearchResultFragment();
             getSupportFragmentManager().beginTransaction().add(R.id.main_content, mLocationSearchResultFragment, LocationSearchResultFragment.TAG_LOCATION_SEARCH_RES_FRAG).commit();
@@ -105,4 +106,10 @@ public class MainActivity extends AppCompatActivity implements LocationSearchRes
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackStackChanged() {
+        if ( 0 == getSupportFragmentManager().getBackStackEntryCount()) {
+            getSupportActionBar().setTitle(getString(R.string.location));
+        }
+    }
 }

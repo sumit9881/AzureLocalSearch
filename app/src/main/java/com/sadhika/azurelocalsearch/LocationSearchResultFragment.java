@@ -28,24 +28,18 @@ import android.view.ViewGroup;
 import com.sadhika.azurelocalsearch.locationservice.LocationService;
 import com.sadhika.azurelocalsearch.pojos.LocationSearchResult;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class LocationSearchResultFragment extends Fragment {
 
     private static final String TAG = LocationSearchResultFragment.class.getName();
     public static final String TAG_LOCATION_SEARCH_RES_FRAG = "LocationSearchResultFragment";
-    private final int MY_PERMISSIONS_REQUEST_LOCATION = 1;
 
     private OnFragmentInteractionListener mListener;
     private ContentLoadingProgressBar mProgressDialog;
     private RecyclerView mRecyclerView;
     private SearchResultRecyclerViewAdapter mAdapter;
 
-    /**
-     * Mandatory empty constructor for the fragment manager to instantiate the
-     * fragment (e.g. upon screen orientation changes).
-     */
     public LocationSearchResultFragment() {
     }
 
@@ -63,12 +57,10 @@ public class LocationSearchResultFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         new SearchResultRecyclerViewAdapter(null, mListener);
-        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle(getString(R.string.location));
         Log.v(TAG, "onCreate mAdapter is " + mAdapter);
         setRetainInstance(true);
         setHasOptionsMenu(true);
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
